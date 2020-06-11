@@ -26,29 +26,21 @@
 
 
 // Solution #3
-function memoize(fn){
-  const cache = {};
 
-  return function(...args){
-    if (cache[args]){
-      return cache[args];
-    }
+function fib(n, memo){
+  memo = memo || {};
 
-    const result = fn.apply(this, args);
-    cache[args] = result;
-
-    return result;
+  if (memo[n]){
+    console.log(memo[n])
+    return memo[n]
   }
-}
 
-function fib(n){
   if(n < 2){
     return n;
   }
 
-  return fib(n - 1) + fib(n - 2);
+  return memo[n] = fib(n - 1, memo) + fib(n - 2, memo);
 }
 
 // fibonacci(5);
-fib(15);
-memoize(fib);
+fib(50);
