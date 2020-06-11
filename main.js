@@ -27,12 +27,10 @@
 
 // Solution #3
 
-function fib(n, memo){
-  memo = memo || {};
-
+function fib(n, memo={}){
   if (memo[n]){
-    console.log(memo[n])
-    return memo[n]
+    console.log(memo[n]);
+    return memo[n];
   }
 
   if(n < 2){
